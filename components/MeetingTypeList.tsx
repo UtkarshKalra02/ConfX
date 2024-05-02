@@ -111,8 +111,8 @@ const MeetingTypeList = () => {
                          isOpen={meetingState === 'isScheduleMeeting'}
                          onClose={() => setMeetingState(undefined)}
                          title="Create Meeting"
-                         handleClick={createMeeting} className={''}              
-                         >
+                         handleClick={createMeeting} className={''}
+                    >
 
                          <div className="flex flex-col gap-2.5">
                               <label className='text-base text-normal
@@ -120,24 +120,25 @@ const MeetingTypeList = () => {
                               <Textarea className='border-none bg-dark-3
                               focus-visible: ring-0
                               focus-visible:ring-offset-0'
-                              onChange={(e) =>{
-                                   setValues({...values, description: e.target.value})
-                              }}/>
+                                   onChange={(e) => {
+                                        setValues({ ...values, description: e.target.value })
+                                   }} />
                          </div>
                          <div className='flex w-full flex-col gap-2.5'>
                               <label className='text-base text-normal
                               leading-[22px] text-sky-2'>Select Date and Time</label>
-                              <ReactDatePicker 
-                              selected={values.dateTime}
-                              onChange={(date) => setValues({...values,
-                                   dateTime: date!
-                              })}
-                              showTimeSelect
-                              timeFormat='HH:mm'
-                              timeIntervals={15}
-                              timeCaption='time'
-                              dateFormat="MMMM d, yyyy h:mm aa"
-                              className='w-full rounded bg-dark-3 p-2
+                              <ReactDatePicker
+                                   selected={values.dateTime}
+                                   onChange={(date) => setValues({
+                                        ...values,
+                                        dateTime: date!
+                                   })}
+                                   showTimeSelect
+                                   timeFormat='HH:mm'
+                                   timeIntervals={15}
+                                   timeCaption='time'
+                                   dateFormat="MMMM d, yyyy h:mm aa"
+                                   className='w-full rounded bg-dark-3 p-2
                               focus:outline-none'/>
                          </div>
                     </MeetingModal>
@@ -149,13 +150,15 @@ const MeetingTypeList = () => {
                          className="text-center"
                          handleClick={() => {
                               navigator.clipboard.writeText(meetingLink);
-                              toast({title:  'Link Copied'})
-                         }}children={undefined}
+                              toast({ title: 'Link Copied' });
+                         }}
                          image='/icons/checked.svg'
                          buttonIcon='/icons/copy.svg'
                          buttonText='Copy Meeting Link'
-                         
-                    />
+                    >
+                         {undefined}
+                    </MeetingModal>
+
 
                )}
                <MeetingModal
@@ -164,8 +167,10 @@ const MeetingTypeList = () => {
                     title="Start an Instant Meeting"
                     className="text-center"
                     buttonText="Start Meeting"
-                    handleClick={createMeeting} children={undefined}
-               />
+                    handleClick={createMeeting}
+               >
+                    {undefined}
+               </MeetingModal>
 
                <MeetingModal
                     isOpen={meetingState === 'isJoiningMeeting'}
@@ -174,13 +179,13 @@ const MeetingTypeList = () => {
                     className="text-center"
                     buttonText="Join Meeting"
                     handleClick={() => router.push(values.link)}
-               > 
+               >
                     <Input
-                    placeholder='Meeting Link'
-                    className='border-none bg-dark-3
+                         placeholder='Meeting Link'
+                         className='border-none bg-dark-3
                     focus-visible: ring-0
                     focus-visible:ring-offset-0'
-                    onChange={(e) => setValues({...values, link: e.target.value})} />
+                         onChange={(e) => setValues({ ...values, link: e.target.value })} />
                </MeetingModal>
           </section>
      )
