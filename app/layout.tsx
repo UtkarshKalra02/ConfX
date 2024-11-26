@@ -9,7 +9,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Zoom Clone",
+  title: "ConfX",
   description: "By Utkarsh Kalra and JS Mastery",
   icons:{
     icon: '/icons/logo.svg'
